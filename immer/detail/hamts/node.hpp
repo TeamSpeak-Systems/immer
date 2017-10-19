@@ -178,8 +178,7 @@ struct node
 
     static node_t* make_inner_n(count_t n)
     {
-        constexpr auto i = branches<B, count_t>;
-        assert(n <= i);
+        assert(n <= (branches<B, count_t>));
         auto m = heap::allocate(sizeof_inner_n(n));
         auto p = new (m) node_t;
 #if IMMER_HAMTS_TAGGED_NODE
@@ -203,8 +202,7 @@ struct node
 
     static node_t* make_inner_n(count_t n, count_t nv)
     {
-        constexpr auto i = branches<B, count_t>;
-        assert(nv <= i);
+        assert(nv <= ((branches<B, count_t>)));
         auto p = make_inner_n(n);
         if (nv) {
             try {
@@ -273,8 +271,7 @@ struct node
 
     static node_t* make_collision_n(count_t n)
     {
-        constexpr auto i = branches<B, count_t>;
-        assert(n <= i);
+        assert(n <= (branches<B, count_t>));
         auto m = heap::allocate(sizeof_collision_n(n));
         auto p = new (m) node_t;
 #if IMMER_HAMTS_TAGGED_NODE
