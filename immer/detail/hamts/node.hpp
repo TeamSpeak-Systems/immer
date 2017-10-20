@@ -8,6 +8,11 @@
 
 #pragma once
 
+#ifdef _MSC_VER
+#pragma warning ( push )
+#pragma warning ( disable: 4267 )
+#endif
+
 #include <immer/detail/combine_standard_layout.hpp>
 #include <immer/detail/util.hpp>
 #include <immer/detail/hamts/bits.hpp>
@@ -710,3 +715,7 @@ struct node
 } // namespace hamts
 } // namespace detail
 } // namespace immer
+
+#ifdef _MSC_VER
+#pragma warning ( pop )
+#endif
