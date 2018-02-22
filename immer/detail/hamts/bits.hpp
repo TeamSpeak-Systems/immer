@@ -49,8 +49,6 @@ constexpr T max_depth = (sizeof(hash_t) * 8 + B - 1) / B;
 template <bits_t B, typename T=count_t>
 constexpr T max_shift = max_depth<B, count_t> * B;
 
-#define IMMER_HAS_BUILTIN_POPCOUNT 1
-
 inline count_t popcount(bitmap_t x)
 {
 #if IMMER_HAS_BUILTIN_POPCOUNT
