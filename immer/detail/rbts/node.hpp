@@ -28,6 +28,11 @@ namespace immer {
 namespace detail {
 namespace rbts {
 
+constexpr size_t log2(size_t n)
+{
+	return ((n < 2) ? 0 : 1 + log2(n / 2));
+}
+
 template <typename T,
           typename MemoryPolicy,
           bits_t   B,

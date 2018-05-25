@@ -1636,8 +1636,11 @@ struct concat_rebalance_plan
     void shuffle(shift_t shift)
     {
         // gcc seems to not really understand this code... :(
+#ifdef  _MSC_VER
+#else
 #pragma GCC diagnostic push
 #pragma GCC diagnostic ignored "-Warray-bounds"
+#endif
         constexpr count_t rrb_extras    = 2;
         constexpr count_t rrb_invariant = 1;
         const auto bits     = shift == BL ? BL : B;
@@ -1660,7 +1663,10 @@ struct concat_rebalance_plan
             --n;
             --i;
         }
+#ifdef  _MSC_VER
+#else
 #pragma GCC diagnostic pop
+#endif
     }
 
     template <typename LPos, typename CPos, typename RPos>
