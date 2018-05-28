@@ -17,6 +17,11 @@
 #include <memory>
 #include <numeric>
 
+#if defined _MSC_VER
+#pragma warning( push )
+#pragma warning( disable : 4267 4456 4458 4702)
+#endif
+
 namespace immer {
 namespace detail {
 namespace rbts {
@@ -1270,3 +1275,7 @@ const rrbtree<T, MP, B, BL> rrbtree<T, MP, B, BL>::empty = {
 } // namespace rbts
 } // namespace detail
 } // namespace immer
+
+#if defined _MSC_VER
+#pragma warning( pop )
+#endif

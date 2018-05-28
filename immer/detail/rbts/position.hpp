@@ -15,6 +15,11 @@
 #include <utility>
 #include <type_traits>
 
+#if defined _MSC_VER
+#pragma warning( push )
+#pragma warning( disable : 4267 4334 )
+#endif
+
 namespace immer {
 namespace detail {
 namespace rbts {
@@ -1849,3 +1854,7 @@ decltype(auto) visit_maybe_relaxed_descent(NodeT* node, shift_t shift,
 } // namespace rbts
 } // namespace detail
 } // namespace immer
+
+#if defined _MSC_VER
+#pragma warning( pop )
+#endif

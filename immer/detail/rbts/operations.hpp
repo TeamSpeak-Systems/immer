@@ -18,6 +18,11 @@
 #include <immer/detail/rbts/position.hpp>
 #include <immer/detail/rbts/visitor.hpp>
 
+#if defined _MSC_VER
+#pragma warning( push )
+#pragma warning( disable : 4267 4459 )
+#endif
+
 namespace immer {
 namespace detail {
 namespace rbts {
@@ -2308,3 +2313,7 @@ concat_trees_mut(edit_type<Node> ec,
 } // namespace rbts
 } // namespace detail
 } // namespace immer
+
+#if defined _MSC_VER
+#pragma warning( pop )
+#endif
