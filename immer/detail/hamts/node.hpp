@@ -637,8 +637,7 @@ struct node
     static void delete_values(values_t* p, count_t n)
     {
         assert(p);
-        //NIELS: deallocate_values already calls destroy_n
-		//destroy_n<T>(reinterpret_cast<T*>(&p->d.buffer), n);
+        destroy_n<T>(reinterpret_cast<T*>(&p->d.buffer), n);
         deallocate_values(p, n);
     }
 
@@ -657,8 +656,7 @@ struct node
         assert(p);
         assert(p->kind() == kind_t::collision);
         auto n = p->collision_count();
-        //NIELS deallocate already calls destroy
-		//destroy_n(p->collisions(), n);
+        destroy_n(p->collisions(), n);
         deallocate_collision(p, n);
     }
 
