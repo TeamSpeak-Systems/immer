@@ -11,6 +11,7 @@
 #include <immer/config.hpp>
 
 #include <cstddef>
+#include <cmath>
 #include <new>
 #include <type_traits>
 #include <memory>
