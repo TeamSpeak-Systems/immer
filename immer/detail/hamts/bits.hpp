@@ -50,7 +50,9 @@ constexpr T max_depth = (sizeof(hash_t) * 8u + B - 1u) / B;
 template <bits_t B, typename T=count_t>
 constexpr T max_shift = max_depth<B, count_t> * B;
 
+#ifndef IMMER_HAS_BUILTIN_POPCOUNT
 #define IMMER_HAS_BUILTIN_POPCOUNT 1
+#endif
 
 inline auto popcount_fallback(std::uint32_t x)
 {
