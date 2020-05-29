@@ -599,15 +599,15 @@ struct node
                                           std::move(v1), hash1,
                                           std::move(v2), hash2);
                 try {
-                    return make_inner_n(1, idx1 >> shift, merged);
+                    return make_inner_n(1, static_cast<count_t>(idx1) >> shift, merged);
                 } catch (...) {
                     delete_deep_shift(merged, shift + B);
                     throw;
                 }
             } else {
                 return make_inner_n(0,
-                                    idx1 >> shift, std::move(v1),
-                                    idx2 >> shift, std::move(v2));
+                                    static_cast<count_t>(idx1) >> shift, std::move(v1),
+                                    static_cast<count_t>(idx2) >> shift, std::move(v2));
             }
         } else {
             return make_collision(std::move(v1), std::move(v2));
