@@ -100,7 +100,7 @@ inline count_t popcount(std::uint64_t x)
     return __builtin_popcountll(x);
 #  endif
 #else
-    return popcount_fallback(x);
+    return static_cast<count_t>(popcount_fallback(x));
 #endif
 }
 
